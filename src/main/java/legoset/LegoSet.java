@@ -2,11 +2,10 @@ package legoset;
 
 import java.net.URL;
 import java.time.Year;
+import java.util.List;
+import java.util.Set;
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import lombok.Data;
 
@@ -30,4 +29,12 @@ public class LegoSet
     private int pieces;
     private Packaging packaging;
 
+    @XmlElementWrapper(name="tags")
+    @XmlElement(name="tag")
+    private Set<String> tags;
+    @XmlElementWrapper(name="minifigs")
+    @XmlElement(name="minifig")
+    private List<Minifig> minifigs;
+
+    private Ratings ratings;
 }
